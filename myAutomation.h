@@ -5,8 +5,8 @@ ROSTER(5,"SBB Cargo Re 482","Lights")
 // TURNOUT( id, addr, sub_addr [, "description"] )
 // Take the address and divide by 4. The result is the address, the remainder is the subaddress.
 // For example, Address 51 (no subaddress) is DCC++ Address 12, Subaddress 3.
-TURNOUT(101, 1, 0, "Near edge turnout")
-TURNOUT(102, 1, 1, "Near wall turnout")
+TURNOUT(101, 1, 0, "Near wall turnout")
+TURNOUT(102, 1, 1, "Near edge turnout")
 
 // AUTOMATIONS
 // TODO: find a way to make this work
