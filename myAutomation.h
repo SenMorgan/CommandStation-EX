@@ -1,5 +1,6 @@
 // ROSTER(999,"Loco Name","F0/F1/*F2/F3/F4/F5/F6/F7/F8")
-ROSTER(3,"Vossloh 1701","Lights/Engine Sound/*Whistle LO/*Whistle HI/Coupler/Ventilator/Shunting mode/Compressor/Diesel Notch Up/Diesel Notch Down/Sanding/*Whistle LO Short/*Whistle HI Short/*Compressed Air/Brake/Interior light")
+ROSTER(4,"Vossloh 1701","Lights/Engine Sound/*Whistle LO/*Whistle HI/Coupler/Ventilator/Shunting mode/Compressor/Diesel Notch Up/Diesel Notch Down/Sanding/*Whistle LO Short/*Whistle HI Short/*Compressed Air/Brake/Interior light")
+ROSTER(5,"SBB Cargo Re 482","Lights")
 
 // TURNOUT( id, addr, sub_addr [, "description"] )
 // Take the address and divide by 4. The result is the address, the remainder is the subaddress.
