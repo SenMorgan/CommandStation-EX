@@ -8,7 +8,6 @@ Release/*
 .vscode/
 config.h
 mySetup.cpp
-myHal.cpp
 myFilter.cpp
 !my*.example.h
 compile_commands.json
