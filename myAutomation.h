@@ -11,6 +11,7 @@ ALIAS(CARGO, 5)
 
 // ########### SENSORS ###########
 ALIAS(SNS1, 164)
+ALIAS(SNS2, 165)
 
 // ########### SIGNALS ###########
 SIGNAL(100, 101, 102)
@@ -29,7 +30,7 @@ ALIAS(TURNOUT_EDGE, 102)
 
 AUTOSTART       // This is the startup sequence,
 POWERON         // turn on track power
-START(201)      // Start test sequence 201
+// START(201)      // Start test sequence 201
 DONE            // End of startup sequence
 
 // ########### SEQUENCES ############
@@ -70,15 +71,17 @@ SEQUENCE(202)
 // ONCLOSE(101) CLOSE(102)
 
 // AUTOMATIONS in the Throttle menu
-// AUTOMATION(203,"Round in circles")
-//   FWD(10)
-//   DELAY(5000)
-//   STOP
-//   DELAYRANDOM(1000,10000)
-//   REV(10)
-//   DELAY(5000)
-//   STOP
-//   FOLLOW(201) // and continue to follow the automation
+AUTOMATION(300,"Round in circles SNS1")
+  FWD(40)
+  DELAY(5000)
+  STOP
+  DELAY(3000)
+  REV(30)
+  AT(SNS1)
+  STOP
+  DELAYRANDOM(3000, 6000)
+  FOLLOW(300) // and continue to follow the automation
+
 
 
 /* ########### NOTES ############
