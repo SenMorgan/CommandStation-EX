@@ -286,6 +286,13 @@ void WifiESP::loop() {
 	clients[clientId].inUse = false;
 	//Do NOT clients.erase(clients.begin()+clientId) as
 	//that would mix up clientIds for later.
+  //Instead we move the last client to the
+  //position of the erased client and then
+  //erase the last client.
+  if (clients.size() > 1) {
+    clients[clientId] = clients[clients.size()-1];
+  }
+  clients.pop_back();
       }
     }
     if (server->hasClient()) {
