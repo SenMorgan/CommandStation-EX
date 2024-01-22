@@ -1,10 +1,11 @@
 // ########### LOCOMOTIVES ###########
 // ROSTER(999,"Loco Name","F0/F1/*F2/F3/F4/F5/F6/F7/F8")
-ROSTER(4,"Vossloh 1701","Lights/Engine Sound/*Whistle LO/*Whistle HI/Coupler/Ventilator/Shunting mode/Compressor/Diesel Notch Up/Diesel Notch Down/Sanding/*Whistle LO Short/*Whistle HI Short/*Compressed Air/Brake/Interior light")
+// Skipped Vossloh's functions: F8 (Diesel Notch Up), F9 (Diesel Notch Down), F11 (Horn LO Short), F12 (Horn HI Short)
+ROSTER(4,"Vossloh 1701","Lights/Engine Sound/*Horn LO/*Horn HI/Coupler/Ventilator/Shunting mode/Compressor///Sanding///*Compressed Air/Brake/Interior light")
 ALIAS(VOSSLOH, 4)
 ALIAS(VOSSLOH_ENGINE_SOUND_F, 1)
-ALIAS(VOSSLOH_WHISTLE_LO_F, 2)
-ALIAS(VOSSLOH_WHISTLE_HI_F, 3)
+ALIAS(VOSSLOH_HORN_LO_F, 2)
+ALIAS(VOSSLOH_HORN_HI_F, 3)
 ALIAS(VOSSLOH_INTERIOR_LIGHT_F, 15)
 ROSTER(5,"SBB Cargo Re 482","Lights")
 ALIAS(CARGO, 5)
@@ -26,12 +27,12 @@ ALIAS(TURNOUT_WALL, 101)
 TURNOUT(102, 1, 1, "Near edge turnout")
 ALIAS(TURNOUT_EDGE, 102)
 
-// ########### AUTOMATIONS ###########
+// ########### STARTUP ###########
 
-AUTOSTART       // This is the startup sequence,
 POWERON         // turn on track power
 // START(201)      // Start test sequence 201
 DONE            // End of startup sequence
+
 
 // ########### SEQUENCES ############
 // Test SNS1 and SIGNAL_1
@@ -70,7 +71,8 @@ SEQUENCE(202)
 // When turnout 101 is closed, also close turnout 102
 // ONCLOSE(101) CLOSE(102)
 
-// AUTOMATIONS in the Throttle menu
+
+// ########### AUTOMATIONS ###########
 AUTOMATION(300,"Round in circles SNS1")
   FWD(40)
   DELAY(5000)
