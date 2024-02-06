@@ -74,14 +74,14 @@ SEQUENCE(202)
 
 // ########### AUTOMATIONS ###########
 AUTOMATION(300,"Round in circles SNS1")
-  FWD(40)
-  DELAY(5000)
+  FWD(50)
+  DELAY(7000)
   STOP
-  DELAY(3000)
+  DELAY(6000)
   REV(30)
   AT(SNS1)
   STOP
-  DELAYRANDOM(3000, 6000)
+  DELAYRANDOM(4000, 6000)
   FOLLOW(300) // and continue to follow the automation
 
 
