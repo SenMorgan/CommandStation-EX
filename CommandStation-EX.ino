@@ -163,6 +163,32 @@ void loop()
     // Initialise OTA if not already done
     if (!otaInitialised) {
       ArduinoOTA.setHostname(WIFI_HOSTNAME);
+      // Prevent locos from moving during OTA
+      ArduinoOTA.onStart([]() {
+        // Emergency stop all locos
+        DCC::setThrottle(0,1,1);
+        // Disable tracks power
+        TrackManager::setMainPower(POWERMODE::OFF);
+        TrackManager::setProgPower(POWERMODE::OFF);
+        // Broadcast power status
+        CommandDistributor::broadcastPower();
+        DISPLAY_START (
+          LCD(0,F("OTA update"));
+          LCD(1,F("In progress..."));
+        );
+      });
+      ArduinoOTA.onEnd([]() {
+        DISPLAY_START (
+          LCD(0,F("OTA update"));
+          LCD(1,F("Complete"));
+        );
+      });
+      ArduinoOTA.onError([](ota_error_t error) {
+        DISPLAY_START (
+          LCD(0,F("OTA update"));
+          LCD(1,F("Error: %d"), error);
+        );
+      });
       // Set OTA password if defined
       #ifdef OTA_AUTH
         ArduinoOTA.setPassword(OTA_AUTH);
