@@ -83,18 +83,22 @@ SEQUENCE(202)
 // Send command a few times to the both turnouts to
 // ensure they are in the correct state.
 ONTHROW(TURNOUT_WALL)
-  DELAY(200) THROW(TURNOUT_WALL) DELAY(200)
-  THROW(TURNOUT_EDGE) DELAY(200) THROW(TURNOUT_EDGE)
+  DELAY(500) THROW(TURNOUT_WALL) DELAY(500)
+  THROW(TURNOUT_EDGE) DELAY(500)
+  THROW(TURNOUT_EDGE) DELAY(500)
+  THROW(TURNOUT_EDGE)
 DONE
 ONCLOSE(TURNOUT_WALL)
-  DELAY(200) CLOSE(TURNOUT_WALL) DELAY(200)
-  CLOSE(TURNOUT_EDGE) DELAY(200) CLOSE(TURNOUT_EDGE)
+  DELAY(500) CLOSE(TURNOUT_WALL) DELAY(500)
+  CLOSE(TURNOUT_EDGE) DELAY(500)
+  CLOSE(TURNOUT_EDGE) DELAY(500)
+  CLOSE(TURNOUT_EDGE)
 DONE
 
 // ########### AUTOMATIONS ###########
-AUTOMATION(300,"Vossloh Route 1")
+AUTOMATION(300,"Vossloh Route 300")
   DELAY(3000)
-  // Train driver comes in
+  // ###### Train driver comes in
   SETLOCO(VOSSLOH)
   FON(VOSSLOH_INTERIOR_LIGHT_F)
   DELAY(3000)
@@ -119,7 +123,8 @@ AUTOMATION(300,"Vossloh Route 1")
 
   // ###### Go till the right edge of the layout
   FWD(40)
-  ATTIMEOUT(R_EDGE, 30000) // Use timeout to avoid accidents
+  ATTIMEOUT(R_EDGE, 18000) // Use timeout to avoid accidents
+  DELAY(600)
   STOP
   DELAY(3000)
   // Set turnouts
@@ -134,17 +139,68 @@ AUTOMATION(300,"Vossloh Route 1")
 
   // ###### Go till the left edge of the layout
   REV(48)
-  ATTIMEOUT(L_EDGE, 15000)
+  ATTIMEOUT(L_EDGE, 16000)
+  STOP
+  DELAY(7000)
+  // Sound the LOW horn to notify that SBB Cargo is leaving
+  FON(VOSSLOH_HORN_LO_F)  DELAY(2000)  FOFF(VOSSLOH_HORN_LO_F)
+  DELAY(2000)
+
+  // ###### SBB Cargo goes to the left
+  // Set turnouts
+  CLOSE(TURNOUT_WALL)
+  DELAY(3000)
+  SETLOCO(CARGO)
+  FWD(34)
+  ATTIMEOUT(L_WALL, 10000)
+  DELAY(100)
   STOP
   DELAY(5000)
+  // Set turnouts
+  THROW(TURNOUT_WALL)
+  DELAY(3000)
+  // Change lights direction
+  REV(0)
+  DELAY(2000)
+  REV(30)
+  ATTIMEOUT(R_EDGE, 15000)
+  // Delay a little bit to move loco further
+  DELAY(500)
+  STOP
+  DELAY(5000)
+  // Change lights direction
+  FWD(0)
+  DELAY(2000)
+  // Go back to the left
+  FWD(30)
+  ATTIMEOUT(L_WALL, 15000)
+  // Delay a little bit to move loco further
+  DELAY(400)
+  STOP
+  DELAY(5000)
+  // Set turnouts
+  CLOSE(TURNOUT_WALL)
+  DELAY(3000)
+  // Change lights direction
+  REV(0)
+  DELAY(2000)
+  // Go to the home
+  REV(33)
+  ATTIMEOUT(R_WALL, 12000)
+  STOP
+  DELAY(5000)
+  // Change lights direction
+  FWD(0)
+
+  // ###### Switch back to Vossloh
+  SETLOCO(VOSSLOH)
   // Change lights direction
   FWD(0)
   DELAY(2000)
   // Sound the horn
   FON(VOSSLOH_HORN_HI_F)  DELAY(300)  FOFF(VOSSLOH_HORN_HI_F)
   DELAY(2000)
-
-  // ###### Go till the right edge of the layout again
+  // Go till the right edge of the layout again
   FWD(50)
   ATTIMEOUT(R_EDGE, 15000)
   STOP
@@ -159,15 +215,15 @@ AUTOMATION(300,"Vossloh Route 1")
   FON(VOSSLOH_HORN_HI_F)  DELAY(300)  FOFF(VOSSLOH_HORN_HI_F)
   DELAY(2000)
 
-  // ###### Go till the left wall of the layout again
+  // ###### Go to the home
   REV(40)
-  ATTIMEOUT(L_WALL, 30000)
-  // Delay a little bit to move loco further (because of low speed)
-  DELAY(500)
+  ATTIMEOUT(L_WALL, 18000)
+  // Delay a little bit to move loco further
+  DELAY(550)
   STOP
   DELAY(5000)
 
-  // Proceed to the end of the route
+  // Proceed the end of route
   FON(VOSSLOH_INTERIOR_LIGHT_F)
   DELAY(3000)
   FON(VOSSLOH_BRAKE_F)
