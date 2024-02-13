@@ -97,6 +97,9 @@ DONE
 
 // ########### AUTOMATIONS ###########
 AUTOMATION(300,"Vossloh Route 300")
+  SET_TRACK(A, MAIN)
+  SET_TRACK(B, MAIN)
+  POWERON
   DELAY(3000)
   // ###### Train driver comes in
   SETLOCO(VOSSLOH)
@@ -115,7 +118,7 @@ AUTOMATION(300,"Vossloh Route 300")
   FOFF(VOSSLOH_BRAKE_F)
   DELAY(3000)
   // Set turnouts
-  THROW(TURNOUT_WALL)
+  THROW(TURNOUT_WALL) DELAY(100) THROW(TURNOUT_EDGE)
   DELAY(2000)
   // Sound the horn
   FON(VOSSLOH_HORN_HI_F)  DELAY(300)  FOFF(VOSSLOH_HORN_HI_F)
@@ -128,7 +131,7 @@ AUTOMATION(300,"Vossloh Route 300")
   STOP
   DELAY(3000)
   // Set turnouts
-  CLOSE(TURNOUT_WALL)
+  CLOSE(TURNOUT_WALL) DELAY(100) CLOSE(TURNOUT_EDGE)
   DELAY(2000)
   // Change lights direction
   REV(0)
@@ -143,13 +146,10 @@ AUTOMATION(300,"Vossloh Route 300")
   STOP
   DELAY(7000)
   // Sound the LOW horn to notify that SBB Cargo is leaving
-  FON(VOSSLOH_HORN_LO_F)  DELAY(2000)  FOFF(VOSSLOH_HORN_LO_F)
+  FON(VOSSLOH_HORN_LO_F)  DELAY(1500)  FOFF(VOSSLOH_HORN_LO_F)
   DELAY(2000)
 
   // ###### SBB Cargo goes to the left
-  // Set turnouts
-  CLOSE(TURNOUT_WALL)
-  DELAY(3000)
   SETLOCO(CARGO)
   FWD(34)
   ATTIMEOUT(L_WALL, 10000)
@@ -157,7 +157,7 @@ AUTOMATION(300,"Vossloh Route 300")
   STOP
   DELAY(5000)
   // Set turnouts
-  THROW(TURNOUT_WALL)
+  THROW(TURNOUT_WALL) DELAY(100) THROW(TURNOUT_EDGE)  THROW(TURNOUT_WALL)
   DELAY(3000)
   // Change lights direction
   REV(0)
@@ -179,7 +179,7 @@ AUTOMATION(300,"Vossloh Route 300")
   STOP
   DELAY(5000)
   // Set turnouts
-  CLOSE(TURNOUT_WALL)
+  CLOSE(TURNOUT_WALL) DELAY(100) CLOSE(TURNOUT_EDGE)
   DELAY(3000)
   // Change lights direction
   REV(0)
@@ -188,7 +188,7 @@ AUTOMATION(300,"Vossloh Route 300")
   REV(33)
   ATTIMEOUT(R_WALL, 12000)
   STOP
-  DELAY(5000)
+  DELAY(6000)
   // Change lights direction
   FWD(0)
 
@@ -206,7 +206,7 @@ AUTOMATION(300,"Vossloh Route 300")
   STOP
   DELAY(5000)
   // Set turnouts
-  THROW(TURNOUT_WALL)
+  THROW(TURNOUT_WALL) DELAY(100) THROW(TURNOUT_EDGE)
   DELAY(2000)
   // Change lights direction
   REV(0)
