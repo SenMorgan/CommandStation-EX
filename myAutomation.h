@@ -48,10 +48,10 @@ ALIAS(SIGNAL_1, 100)
 // TURNOUT( id, addr, sub_addr [, "description"] )
 // Take the address and divide by 4. The result is the address, the remainder is the subaddress.
 // For example, Address 51 (no subaddress) is DCC++ Address 12, Subaddress 3.
-TURNOUT(101, 1, 0, "Near wall turnout")
 ALIAS(TURNOUT_WALL, 101)
-TURNOUT(102, 1, 1, "Near edge turnout")
+TURNOUT(TURNOUT_WALL, 1, 0, "Near wall turnout")
 ALIAS(TURNOUT_EDGE, 102)
+TURNOUT(TURNOUT_EDGE, 1, 1, "Near edge turnout")
 
 
 
