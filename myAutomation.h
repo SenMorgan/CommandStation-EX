@@ -28,6 +28,7 @@ ALIAS(VOSSLOH_LIGHTS_F, 0)
 ALIAS(VOSSLOH_ENGINE_SOUND_F, 1)
 ALIAS(VOSSLOH_HORN_LO_F, 2)
 ALIAS(VOSSLOH_HORN_HI_F, 3)
+ALIAS(VOSSLOH_VENTILATOR_F, 5)
 ALIAS(VOSSLOH_BRAKE_F, 14)
 ALIAS(VOSSLOH_INTERIOR_LIGHT_F, 15)
 ROSTER(5,"SBB Cargo Re 482","Lights")
@@ -57,9 +58,9 @@ ALIAS(TURNOUT_EDGE, 102)
 // ########### SEQUENCES ############
 // TODO: This is not working. The horn is not played.
 // Sound the Vossloh's horn
-// SEQUENCE(200)
-//   FON(VOSSLOH_HORN_HI_F)  DELAY(300)  FOFF(VOSSLOH_HORN_HI_F)
-// RETURN
+SEQUENCE(200)
+  FON(VOSSLOH_HORN_HI_F)  DELAY(300)  FOFF(VOSSLOH_HORN_HI_F)
+  RETURN
 // ALIAS(HORN_VOSSLOH_HI, 200)
 
 
@@ -158,10 +159,14 @@ AUTOMATION(300,"Vossloh Route 300")
   REV(48)
   ATTIMEOUT(L_EDGE, 16000)
   STOP
-  DELAY(7000)
+  DELAY(6000)
+  // Change lights direction
+  FWD(0)
+  DELAY(1000)
   // Sound the LOW horn to notify that SBB Cargo is leaving
   FON(VOSSLOH_HORN_LO_F)  DELAY(1500)  FOFF(VOSSLOH_HORN_LO_F)
   DELAY(2000)
+  FON(VOSSLOH_VENTILATOR_F)
 
   // ###### SBB Cargo goes to the left
   SETLOCO(CARGO)
@@ -208,9 +213,10 @@ AUTOMATION(300,"Vossloh Route 300")
 
   // ###### Switch back to Vossloh
   SETLOCO(VOSSLOH)
+  FOFF(VOSSLOH_VENTILATOR_F)
   // Change lights direction
   FWD(0)
-  DELAY(2000)
+  DELAY(4000)
   // Sound the horn
   FON(VOSSLOH_HORN_HI_F)  DELAY(300)  FOFF(VOSSLOH_HORN_HI_F)
   DELAY(2000)
@@ -236,6 +242,9 @@ AUTOMATION(300,"Vossloh Route 300")
   DELAY(550)
   STOP
   DELAY(5000)
+  // Change lights direction
+  FWD(0)
+  DELAY(1000)
 
   // Proceed the end of route
   FON(VOSSLOH_INTERIOR_LIGHT_F)
