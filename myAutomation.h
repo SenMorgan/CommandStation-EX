@@ -1,8 +1,22 @@
+/* ########### NOTES ############
+- To test PA0 input of expander, send this command to Serial port:
+    <S 3 179 1>
+    Then it must return messages depending on the state of the input:
+    00:50:22.425 > <Q 2>
+    00:50:23.145 > <q 2>
+- Default volume by CV:
+  63 - 64 or (main volume: 64 - 100%, 20 - 31%)
+  121 - 64 (low horn)
+  122 - 64
+  123 - 64 (engine sound)
+*/
+
 // ########### STARTUP ###########
 AUTOSTART
   SET_TRACK(A, MAIN)
   SET_TRACK(B, MAIN)
   POWERON
+
 DONE
 
 // ########### LOCOMOTIVES ###########
@@ -235,12 +249,3 @@ AUTOMATION(300,"Vossloh Route 300")
   FOFF(VOSSLOH_INTERIOR_LIGHT_F)
   DONE
 
-
-
-/* ########### NOTES ############
-To test PA0 input of expander, send this command to Serial port:
-<S 3 179 1>
-Then it must return messages depending on the state of the input:
-00:50:22.425 > <Q 2>
-00:50:23.145 > <q 2>
-*/
