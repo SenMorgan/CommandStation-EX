@@ -10,6 +10,10 @@
   122 - 64
   123 - 64 (engine sound)
 
+- Nano Servo max angles:
+  <D SERVO 100 60 2>
+  <D SERVO 100 560 2>
+
   // Test L_EDGE and SIGNAL_1
   SEQUENCE(201)
     GREEN(SIGNAL_1)
@@ -76,6 +80,9 @@ ALIAS(L_EDGE, 179)  // Left side - edge
 SIGNAL(100, 101, 102)
 ALIAS(SIGNAL_1, 100)
 
+// ########### SERVOS ###########
+ALIAS(SERVO1, 103)
+
 // ########### TURNOUTS ###########
 // TURNOUT( id, addr, sub_addr [, "description"] )
 // Take the address and divide by 4. The result is the address, the remainder is the subaddress.
@@ -90,6 +97,35 @@ TURNOUT(TURNOUT_EDGE, 1, 1, "Near edge turnout")
 // ##################################
 // ########### SEQUENCES ############
 // ##################################
+
+// Test sequence for the servo
+ALIAS(SERVO_TEST)
+SEQUENCE(SERVO_TEST)
+  SERVO2(SERVO1, 60, 6000)
+  DELAY(6000)
+  SERVO2(SERVO1, 560, 6000)
+  RETURN
+
+AUTOMATION(302,"Pos 60 - 10000")
+  SERVO2(SERVO1, 60, 10000)
+  DONE
+AUTOMATION(303,"Pos 560 - 11000")
+  SERVO2(SERVO1, 560, 11000)
+  DONE
+AUTOMATION(304,"Pos 60 - 12000")
+  SERVO2(SERVO1, 60, 12000)
+  DONE
+AUTOMATION(305,"Pos 560 - 13000")
+  SERVO2(SERVO1, 560, 13000)
+  DONE
+AUTOMATION(306,"Pos 60 - 14000")
+  SERVO2(SERVO1, 60, 14000)
+  DONE
+AUTOMATION(307,"Pos 560 - 15000")
+  SERVO2(SERVO1, 560, 15000)
+  DONE
+
+
 
 // ########### TURNOUT SEQUENCES ###########
 // Mirror the state of TURNOUT_WALL to TURNOUT_EDGE.
