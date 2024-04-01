@@ -163,7 +163,7 @@ SEQUENCE(HORN_VOSSLOH_LOW_LONG)
   RETURN
 ALIAS(HORN_VOSSLOH_LOW_LONG_AFTER_DELAY)
 SEQUENCE(HORN_VOSSLOH_LOW_LONG_AFTER_DELAY)
-  DELAY(10000)
+  DELAY(11000)
   XFON(VOSSLOH, VOSSLOH_HORN_LO_F)  DELAY(1000)  XFOFF(VOSSLOH, VOSSLOH_HORN_LO_F)
   DONE
 ALIAS(HORN_VOSSLOH_HI_TWICE)
@@ -290,7 +290,7 @@ AUTOMATION(300,"Vossloh Route 300")
   // ###### Go till the right edge of the layout
   FWD(40)
   ATTIMEOUT(R_EDGE, 18000) // Use timeout to avoid accidents
-  DELAY(600)
+  DELAY(700)
   STOP
   DELAY(4000)
   CALL(VOSSLOH_ENGAGE_BRAKES)
@@ -314,8 +314,8 @@ AUTOMATION(300,"Vossloh Route 300")
   // ###### SBB Cargo goes to the left
   SETLOCO(CARGO)
   FWD(34)
-  ATTIMEOUT(L_WALL, 10000)
-  DELAY(100)
+  ATTIMEOUT(L_WALL, 12000)
+  DELAY(1100)
   STOP
   DELAY(5000)
   // Set turnouts
@@ -328,7 +328,7 @@ AUTOMATION(300,"Vossloh Route 300")
 
   START(VOSSLOH_COMPRESSOR_AFTER_DELAY)
 
-  ATTIMEOUT(R_EDGE, 15000)
+  ATTIMEOUT(R_EDGE, 17000)
   // Delay a little bit to move loco further
   DELAY(500)
   STOP
@@ -339,9 +339,9 @@ AUTOMATION(300,"Vossloh Route 300")
   CALL(SBB_CARGO_PREPARE_TO_MOVE)
   // Go back to the left
   FWD(30)
-  ATTIMEOUT(L_WALL, 15000)
+  ATTIMEOUT(L_WALL, 17000)
   // Delay a little bit to move loco further
-  DELAY(400)
+  DELAY(1900)
   STOP
   DELAY(5000)
   CALL(CLOSE_TURNOUTS)
@@ -351,7 +351,7 @@ AUTOMATION(300,"Vossloh Route 300")
   CALL(SBB_CARGO_PREPARE_TO_MOVE)
   // Go to the home
   REV(33)
-  ATTIMEOUT(R_WALL, 12000)
+  ATTIMEOUT(R_WALL, 14000)
   STOP
   DELAY(6000)
   // Change lights direction
@@ -362,7 +362,7 @@ AUTOMATION(300,"Vossloh Route 300")
   SETLOCO(VOSSLOH)
   CALL(VOSSLOH_PREPARE_TO_MOVE)
   // Go till the right edge of the layout again
-  FWD(50)
+  FWD(48)
   ATTIMEOUT(R_EDGE, 15000)
   STOP
   DELAY(6000)
@@ -375,9 +375,9 @@ AUTOMATION(300,"Vossloh Route 300")
 
   // ###### Go to the home
   REV(40)
-  ATTIMEOUT(L_WALL, 18000)
+  ATTIMEOUT(L_WALL, 20000)
   // Delay a little bit to move loco further
-  DELAY(550)
+  DELAY(2300)
   STOP
   DELAY(6000)
   CALL(VOSSLOH_ENGAGE_BRAKES)
