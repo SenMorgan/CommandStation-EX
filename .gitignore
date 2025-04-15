@@ -11,3 +11,5 @@ mySetup.cpp
 myFilter.cpp
 !my*.example.h
 compile_commands.json
+newcode.txt.old
+UserAddin.txt
