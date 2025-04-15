@@ -53,8 +53,9 @@ DONE
 
 // ########### LOCOMOTIVES ###########
 // ROSTER(999,"Loco Name","F0/F1/*F2/F3/F4/F5/F6/F7/F8")
-// Skipped Vossloh's functions: F8 (Diesel Notch Up), F9 (Diesel Notch Down), F11 (Horn LO Short), F12 (Horn HI Short)
-ROSTER(4,"Vossloh 1701","Lights/Engine Sound/*Horn LO/*Horn HI/Coupler/Ventilator/Shunting mode/Compressor///Sanding///*Compressed Air/Brake/Interior light")
+
+// Vossloh 1701
+ROSTER(4,"Vossloh 1701","Lights/Engine Sound/*Horn LO/*Horn HI/Coupler/Ventilator/Shunting Mode/Compressor///Sanding///*Compressed Air/Brake/Cabin Light")
 ALIAS(VOSSLOH, 4)
 ALIAS(VOSSLOH_LIGHTS_F, 0)
 ALIAS(VOSSLOH_ENGINE_SOUND_F, 1)
@@ -67,8 +68,35 @@ ALIAS(VOSSLOH_HORN_LO_SHORT_F, 11)
 ALIAS(VOSSLOH_HORN_HI_SHORT_F, 12)
 ALIAS(VOSSLOH_BRAKE_F, 14)
 ALIAS(VOSSLOH_INTERIOR_LIGHT_F, 15)
-ROSTER(5,"SBB Cargo Re 482","Lights")
+
+// SBB Cargo Re 482
+ROSTER(5,"SBB Cargo Re 482","Lights/Power Sound/*Multiple Horns/*Multiple Horns Fancy/*Brake Squeal/Engine Mode/Detonators/Cabin Start-Up/Doors//Air Con/Wipers/Rail Clack/*Pantograph Arc/Flange Squeal//Coupling/*Safety Announcements/*Destination Announcements/*Guards Whistle/Station Sound/Inspection Lights/Cabin Light///Shunting Mode/*Creep Mode/*Dynamic Brake/AFC Enable")
 ALIAS(CARGO, 5)
+ALIAS(CARGO_LIGHTS_F, 0)
+ALIAS(CARGO_POWER_SOUND_F, 1)
+ALIAS(CARGO_MULTIPLE_HORNS_F, 2)
+ALIAS(CARGO_MULTIPLE_HORNS_FANCY_F, 3)
+ALIAS(CARGO_BRAKE_F, 4)
+ALIAS(CARGO_ENGINE_MODE_F, 5)
+ALIAS(CARGO_DETONATORS_F, 6)
+ALIAS(CARGO_CAB_START_UP_F, 7)
+ALIAS(CARGO_DOORS_F, 8)
+ALIAS(CARGO_AIR_CONDITIONING_F, 10)
+ALIAS(CARGO_WIPERS_F, 11)
+ALIAS(CARGO_RAIL_CLACK_F, 12)
+ALIAS(CARGO_PANTOGRAPH_ARC_F, 13)
+ALIAS(CARGO_FLANGE_SQUEAL_F, 14)
+ALIAS(CARGO_COUPLING_F, 16)
+ALIAS(CARGO_SAFETY_ANNOUNCEMENTS_F, 17)
+ALIAS(CARGO_DESTINATION_ANNOUNCEMENTS_F, 18)
+ALIAS(CARGO_GUARDS_WHISTLE_F, 19)
+ALIAS(CARGO_STATION_SOUND_F, 20)
+ALIAS(CARGO_INSPECTION_LIGHTS_F, 21)
+ALIAS(CARGO_CABIN_LIGHT_F, 22)
+ALIAS(CARGO_SHUNTING_MODE_F, 25)
+ALIAS(CARGO_CREEP_MODE_F, 26)
+ALIAS(CARGO_DYNAMIC_BRAKE_F, 27)
+ALIAS(CARGO_AFC_ENABLE_F, 28)
 
 // ########### SENSORS ###########
 ALIAS(R_EDGE, 164)  // Right side - edge
