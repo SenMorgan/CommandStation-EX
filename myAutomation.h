@@ -46,7 +46,7 @@
 // ########### STARTUP ###########
 AUTOSTART
   SET_TRACK(A, MAIN)
-  SET_TRACK(B, MAIN)
+  SET_TRACK(B, PROG)
   POWERON
 
 DONE
