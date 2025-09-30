@@ -28,7 +28,7 @@ bool Diag::WITHROTTLE=false;
 bool Diag::ETHERNET=false;
 bool Diag::LCN=false;
 bool Diag::OTA=false;
-
+bool Diag::SNIFFER=false;
 
 void StringFormatter::diag( const FSH* input...) {
  USB_SERIAL.print(F("<* "));
