@@ -1,44 +1,3 @@
-/* ########### NOTES ############
-- To test PA0 input of expander, send this command to Serial port:
-    <S 3 179 1>
-    Then it must return messages depending on the state of the input:
-    00:50:22.425 > <Q 2>
-    00:50:23.145 > <q 2>
-- Default volume by CV:
-  63 - 64 or (main volume: 64 - 100%, 20 - 31%)
-  121 - 64 (low horn)
-  122 - 64
-  123 - 64 (engine sound)
-
-- Nano Servo max angles:
-  <D SERVO 100 60 2>
-  <D SERVO 100 560 2>
-
-  // Test L_EDGE and SIGNAL_1
-  SEQUENCE(201)
-    GREEN(SIGNAL_1)
-    AT(L_EDGE)
-      AMBER(SIGNAL_1)
-      DELAY(500)
-      RED(SIGNAL_1)
-    AT(-L_EDGE)
-      AMBER(SIGNAL_1)
-      DELAY(500)
-      GREEN(SIGNAL_1)
-    FOLLOW(201)
-
-
-  // Test signals
-  SEQUENCE(202)
-    RED(SIGNAL_1)
-    DELAY(500)
-    AMBER(SIGNAL_1)
-    DELAY(500)
-    GREEN(SIGNAL_1)
-    DELAY(500)
-    FOLLOW(202)
-*/
-
 // ##################################
 // ########### CONFIGURATION #########
 // ##################################
@@ -52,7 +11,7 @@ AUTOSTART
 DONE
 
 // ########### LOCOMOTIVES ###########
-// ROSTER(999,"Loco Name","F0/F1/*F2/F3/F4/F5/F6/F7/F8")
+// Example of the roster entry: ROSTER(Loco Address, "Loco Name", "F0/F1/F2/F3...")
 
 // Vossloh 1701
 ROSTER(4,"Vossloh 1701","Lights/Engine Sound/*Horn LO/*Horn HI/Coupler/Ventilator/Shunting Mode/Compressor///Sanding///*Compressed Air/Brake/Cabin Light")
