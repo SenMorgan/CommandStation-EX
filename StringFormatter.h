@@ -1,5 +1,5 @@
 /*
- *  © 2020, Chris Harlow. All rights reserved.
+ *  © 2020-2025, Chris Harlow. All rights reserved.
  *
  *  This file is part of Asbelos DCC API
  *
@@ -31,6 +31,8 @@ class Diag {
   static bool ETHERNET;
   static bool LCN;
   static bool OTA;
+  static bool RAILCOM;
+  static bool WEBSOCKET;
   static bool SNIFFER;
 };
 
