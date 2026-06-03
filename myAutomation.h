@@ -14,7 +14,7 @@ DONE
 // Example of the roster entry: ROSTER(Loco Address, "Loco Name", "F0/F1/F2/F3...")
 
 // Vossloh 1701
-ROSTER(4,"Vossloh 1701","Lights/Engine Sound/*Horn LO/*Horn HI/Coupler/Ventilator/Shunting Mode/Compressor///Sanding///*Compressed Air/Brake/Cabin Light")
+ROSTER(4, "Vossloh 1701", "Lights/Engine Sound/*Horn LO/*Horn HI/Coupler/Ventilator/Shunting Mode/Compressor///Sanding///*Compressed Air/Brake/Cabin Light")
 ALIAS(VOSSLOH, 4)
 ALIAS(VOSSLOH_LIGHTS_F, 0)
 ALIAS(VOSSLOH_ENGINE_SOUND_F, 1)
@@ -29,7 +29,7 @@ ALIAS(VOSSLOH_BRAKE_F, 14)
 ALIAS(VOSSLOH_INTERIOR_LIGHT_F, 15)
 
 // SBB Cargo Re 482
-ROSTER(5,"SBB Cargo Re 482","Lights/Power Sound/*Multiple Horns/*Multiple Horns Fancy/*Brake Squeal/Engine Mode/Detonators/Cabin Start-Up/Doors//Air Con/Wipers/Rail Clack/*Pantograph Arc/Flange Squeal//Coupling/*Safety Announcements/*Destination Announcements/*Guards Whistle/Station Sound/Inspection Lights/Cabin Light///Shunting Mode/*Creep Mode/*Dynamic Brake/AFC Enable")
+ROSTER(5, "SBB Cargo Re 482", "Lights/Power Sound/*Multiple Horns/*Multiple Horns Fancy/*Brake Squeal/Engine Mode/Detonators/Cabin Start-Up/Doors//Air Con/Wipers/Rail Clack/*Pantograph Arc/Flange Squeal//Coupling/*Safety Announcements/*Destination Announcements/*Guards Whistle/Station Sound/Inspection Lights/Cabin Light///Shunting Mode/*Creep Mode/*Dynamic Brake/AFC Enable")
 ALIAS(CARGO, 5)
 ALIAS(CARGO_LIGHTS_F, 0)
 ALIAS(CARGO_POWER_SOUND_F, 1)
@@ -58,11 +58,14 @@ ALIAS(CARGO_DYNAMIC_BRAKE_F, 27)
 ALIAS(CARGO_AFC_ENABLE_F, 28)
 
 // DB BR 182 (Taurus)
-ROSTER(6, "DB BR 182","Lights/AUX1/AUX2")
+ROSTER(6, "DB BR 182", "Lights/AUX1/AUX2")
 ALIAS(TAURUS, 6)
 ALIAS(TAURUS_LIGHTS_F, 0)
 ALIAS(TAURUS_CABIN_LIGHT_F, 1)
 ALIAS(TAURUS_AUX2_F, 2)
+
+// British Rail Class 37
+ROSTER(7, "British Rail Class 37", "Lights/AUX1/AUX2")
 
 
 // ########### SENSORS ###########
